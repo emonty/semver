@@ -52,8 +52,9 @@ and what has been modified from one version to the next.
 
 Linux Compatible Semantic Versioning is different from Semantic
 Versioning in that it does not employ the use of the hypen in ways that
-are in conflict with the version string requirements of the Linux
-distros.
+are ambiguous when used with or adjacent to software packaged with dpkg or
+rpm. Instead, it draws from PEP440's approach of indicating pre-releases
+with leading characters in the version segment.
 
 Semantic Versioning Specification (SemVer)
 ------------------------------------------
