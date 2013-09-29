@@ -1,5 +1,5 @@
-Semantic Versioning 2.0.0
-==============================
+Linux Compatible Semantic Versioning 3.0.0
+==========================================
 
 Summary
 -------
@@ -48,6 +48,9 @@ I call this system "Semantic Versioning." Under this scheme, version numbers
 and the way they change convey meaning about the underlying code and what has
 been modified from one version to the next.
 
+Linux Compatible Semantic Versioning is different from Semantic Versioning
+in that it does not employ the use of the hypen in ways that are in conflict
+with the version string requirements of the Linux distros.
 
 Semantic Versioning Specification (SemVer)
 ------------------------------------------
@@ -91,24 +94,24 @@ incompatible changes are introduced to the public API. It MAY also include minor
 and patch level changes. Patch and minor version MUST be reset to 0 when major
 version is incremented.
 
-1. A pre-release version MAY be denoted by appending a hyphen and a
+1. A pre-release version MAY be denoted by appending a
 series of dot separated identifiers immediately following the patch
-version. Identifiers MUST comprise only ASCII alphanumerics and hyphen
-[0-9A-Za-z-]. Identifiers MUST NOT be empty. Numeric identifiers MUST
-NOT include leading zeroes. Pre-release versions have a lower
+version. Identifiers MUST comprise only ASCII alphanumerics
+[0-9A-Za-z]. Identifiers MUST NOT be empty. Identifiers must start with a
+leading alpha character. Pre-release versions have a lower
 precedence than the associated normal version. A pre-release version
 indicates that the version is unstable and might not satisfy the
 intended compatibility requirements as denoted by its associated
-normal version. Examples: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7,
-1.0.0-x.7.z.92.
+normal version. Examples: 1.0.0.alpha, 1.0.0.alpha.1, 1.0.0.a0.a3.a7,
+1.0.0.x.a7.z.a92.
 
 1. Build metadata MAY be denoted by appending a plus sign and a series of dot
 separated identifiers immediately following the patch or pre-release version.
-Identifiers MUST comprise only ASCII alphanumerics and hyphen [0-9A-Za-z-].
+Identifiers MUST comprise only ASCII alphanumerics [0-9A-Za-z].
 Identifiers MUST NOT be empty. Build metadata MUST be ignored when determining
 version precedence. Thus two versions that differ only in the build metadata,
-have the same precedence. Examples: 1.0.0-alpha+001, 1.0.0+20130313144700,
-1.0.0-beta+exp.sha.5114f85.
+have the same precedence. Examples: 1.0.0.alpha+001, 1.0.0+20130313144700,
+1.0.0.beta+exp.sha.5114f85.
 
 1. Precedence refers to how versions are compared to each other when ordered.
 Precedence MUST be calculated by separating the version into major, minor, patch
@@ -117,16 +120,16 @@ into precedence). Precedence is determined by the first difference when
 comparing each of these identifiers from left to right as follows: Major, minor,
 and patch versions are always compared numerically. Example: 1.0.0 < 2.0.0 <
 2.1.0 < 2.1.1. When major, minor, and patch are equal, a pre-release version has
-lower precedence than a normal version. Example: 1.0.0-alpha < 1.0.0. Precedence
+lower precedence than a normal version. Example: 1.0.0.alpha < 1.0.0. Precedence
 for two pre-release versions with the same major, minor, and patch version MUST
 be determined by comparing each dot separated identifier from left to right
 until a difference is found as follows: identifiers consisting of only digits
-are compared numerically and identifiers with letters or hyphens are compared
+are compared numerically and identifiers with letters are compared
 lexically in ASCII sort order. Numeric identifiers always have lower precedence
 than non-numeric identifiers. A larger set of pre-release fields has a higher
 precedence than a smaller set, if all of the preceding identifiers are equal.
-Example: 1.0.0-alpha < 1.0.0-alpha.1 < 1.0.0-alpha.beta < 1.0.0-beta <
-1.0.0-beta.2 < 1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0.
+Example: 1.0.0.alpha < 1.0.0.alpha.1 < 1.0.0.alpha.beta < 1.0.0.beta <
+1.0.0.beta.2 < 1.0.0.beta.11 < 1.0.0.rc.1 < 1.0.0.
 
 Backus–Naur Form Grammar for Valid SemVer Versions
 --------------------------------------------------
