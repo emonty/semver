@@ -138,8 +138,8 @@ document are to be interpreted as described in `RFC
     alphanumerics [0-9A-Za-z]. Identifiers MUST NOT be empty. Build
     metadata MUST be ignored when determining version precedence. Thus
     two versions that differ only in the build metadata, have the same
-    precedence. Examples: 1.0.0.alpha+001, 1.0.0+20130313144700,
-    1.0.0.beta+exp.sha.5114f85.
+    precedence. Examples: 1.0.0.a1+001, 1.0.0+20130313144700,
+    1.0.0.b1+exp.sha.5114f85.
 
 #.  Precedence refers to how versions are compared to each other when
     ordered. Precedence MUST be calculated by separating the version
