@@ -124,6 +124,14 @@ document are to be interpreted as described in `RFC
     potentially prone to break still, are intended for externally facing
     communication of not-yet-released ideas. Example: 1.0.0.dev1.
 
+#.  git version metadata MAY be denoted by appending a dot separated
+    identifier immediately following a developement version.
+    The identifier MUST comprise the character g followed by a seven
+    character git short-sha. The sha MUST NOT be empty. git version
+    metadata MUST be ignored when determining version precedence. Thus
+    two versions that differ only in the git version, have the same
+    precedence. Example: 1.0.0.a1.g95a9beb.
+
 #.  Build metadata MAY be denoted by appending a plus sign and a series
     of dot separated identifiers immediately following the patch or
     pre-release version. Identifiers MUST comprise only ASCII
