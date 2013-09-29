@@ -103,16 +103,26 @@ document are to be interpreted as described in `RFC
     MAY also include minor and patch level changes. Patch and minor
     version MUST be reset to 0 when major version is incremented.
 
-#.  A pre-release version MAY be denoted by appending a series of dot
-    separated identifiers immediately following the patch version.
-    Identifiers MUST comprise only ASCII alphanumerics [0-9A-Za-z].
-    Identifiers MUST NOT be empty. Identifiers must start with a leading
-    alpha character. Pre-release versions have a lower precedence than
-    the associated normal version. A pre-release version indicates that
+#.  A pre-release version MAY be denoted by appending a dot
+    separated identifier immediately following the patch version.
+    The identifier MUST comprise only a, b, rc followed by non-negative
+    integer value. The identifier MUST NOT be empty.
+    Pre-release versions have a lower precedence than the associated normal
+    version. A pre-release version indicates that
     the version is unstable and might not satisfy the intended
     compatibility requirements as denoted by its associated normal
-    version. Examples: 1.0.0.alpha, 1.0.0.alpha.1, 1.0.0.a0.a3.a7,
-    1.0.0.x.a7.z.a92.
+    version. Examples: 1.0.0.a1, 1.0.0.b99, 1.0.0.rc1000.
+
+#.  A development version MAY be denoted by appending a dot separated
+    indentifier immediately following the patch version. 
+    The identifier MUST comprise the string dev followed by non-negative
+    integer value. The identifier MUST NOT be empty. Development versions
+    have a lower precedence than the associated normal version. A development
+    version is a completely unsupported and conveys no API promises when
+    related to other versions. They are more useful as communication
+    vehicles between developers of a community, whereas pre-releases, while
+    potentially prone to break still, are intended for externally facing
+    communication of not-yet-released ideas. Example: 1.0.0.dev1.
 
 #.  Build metadata MAY be denoted by appending a plus sign and a series
     of dot separated identifiers immediately following the patch or
@@ -132,17 +142,16 @@ document are to be interpreted as described in `RFC
     versions are always compared numerically. Example: 1.0.0 < 2.0.0 <
     2.1.0 < 2.1.1. When major, minor, and patch are equal, a pre-release
     version has lower precedence than a normal version. Example:
-    1.0.0.alpha < 1.0.0. Precedence for two pre-release versions with
+    1.0.0.a1 < 1.0.0. When major, minor, and patch are equal, a development
+    version as a lower precedence than a normal version and of a pre-release
+    version. Example: 1.0.0.dev1 < 1.0.0 and 1.0.0dev9 < 1.0.0a1.
+    Precedence for two pre-release or development versions with
     the same major, minor, and patch version MUST be determined by
-    comparing each dot separated identifier from left to right until a
-    difference is found as follows: identifiers consisting of only
-    digits are compared numerically and identifiers with letters are
-    compared lexically in ASCII sort order. Numeric identifiers always
-    have lower precedence than non-numeric identifiers. A larger set of
-    pre-release fields has a higher precedence than a smaller set, if
-    all of the preceding identifiers are equal. Example: 1.0.0.alpha <
-    1.0.0.alpha.1 < 1.0.0.alpha.beta < 1.0.0.beta < 1.0.0.beta.2 <
-    1.0.0.beta.11 < 1.0.0.rc.1 < 1.0.0.
+    comparing the identifier to the right of the patch version as follows:
+    if the alpha portion matches, the numeric portion is compared in
+    numerical sort order. If the alpha portion does not match, the sort
+    order is dev < a < b < rc. Example: 1.0.0.dev8 < 1.0.0.dev9
+    1.0.0.a1 < 1.0.0.b2 < 1.0.0.rc1 < 1.0.0.
 
 Why Use Semantic Versioning?
 ----------------------------
