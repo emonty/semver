@@ -251,12 +251,22 @@ the string.
 About
 -----
 
-The Semantic Versioning specification is authored by [Tom
-Preston-Werner](http://tom.preston-werner.com), inventor of Gravatars and
-cofounder of GitHub.
+The Linux Compatible Semantic Versioning specification was modified by
+[Monty Taylor](http://inaugust.com), member of
+[The Satori Group](http://satori-group.com), co-founder of OpenStack
+and Free Software Hacker.
+
+It was based on The Semantic Versioning specification, which was authored by
+[Tom Preston-Werner](http://tom.preston-werner.com), inventor of Gravatars and
+cofounder of GitHub, with inputs from [PEP 440](http://www.python.org/dev/peps/pep-0440/)
+which was authored by [Nick Coughlan](http://www.boredomandlaziness.org)
+who is a core Python developer and generally a great guy. I don't really know
+which things Nick invented or co-founded, and I'm not really sure why we'd
+need to list those here, but Tom did, so I figured coding style is usually
+about sticking to the style that was there before you showed up.
 
 If you'd like to leave feedback, please [open an issue on
-GitHub](https://github.com/mojombo/semver/issues).
+GitHub](https://github.com/emonty/semver/issues).
 
 
 License
